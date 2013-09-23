@@ -690,5 +690,18 @@
 	"hex": "FE4C40",
 	"name": "SunsetOrange",
 	"cname": "夕阳红"
+    },
+    {
+        "hex": "E9F01D",
+        "name": "Primrose",
+        "cname": "樱草色"
+    },
+    {
+        "hex": "B87333",
+        "cname": "古铜色"
+    },
+    {
+        "hex": "ACE1AF",
+        "cname": "青瓷色"
     }
 ]

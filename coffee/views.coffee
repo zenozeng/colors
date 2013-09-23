@@ -3,6 +3,11 @@ Color = @Color
 class View
 
   constructor: (@colors) ->
+    $('body').on 'click', '.color', ->
+      color = $(this).css('background-color')
+      color = new Color color
+      hex = color.hex().split('#')[1]
+      window.location.hash = "#!/color/#{hex}"
 
   index: ->
     html = @colors.map (color) -> "<a href=\"#!/color/#{color.hex}\" style=\"background: ##{color.hex}\"></a>"
@@ -10,10 +15,15 @@ class View
     $('#color').slideUp -> $('#index').slideDown()
 
   color: (hex) ->
+    $('html, body').animate({scrollTop: 0});
     color = @colors.filter (color) -> color.hex is hex
     color = color[0]
     hex = "#"+hex
-    html = [color.cname, color.name].join('&nbsp;&nbsp;')
+    prefix = "<a href=\"#\">Colors</a>"
+    if color?
+      html = [prefix, '&gt;', color.cname, color.name].join('&nbsp;&nbsp;')
+    else
+      html = [prefix, '&gt;', hex].join('&nbsp;&nbsp;')
     $('#color h1').html html
 
     color = new Color hex

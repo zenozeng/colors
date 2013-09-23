@@ -23,22 +23,29 @@ main {
         margin: 5vh auto;
         background: #fff;
         padding: 3vw;
+        .color {
+            cursor: pointer;
+        }
         h1 {
             color: #ccc;
             font-weight: normal;
             border-bottom: 3px solid #ccc;
             line-height: 48px;
             font-size: 24px;
+            a {
+                text-decoration: none;
+                color: #aaa;
+            }
         }
         h2 {
-            margin-top: 24px;
+            margin-top: 36px;
             font-weight: normal;
             color: #ccc;
             line-height: 24px;
             font-size: 18px;
         }
         .block {
-            margin-top: 2vw;
+            margin-top: 1.5vw;
             width: 100%;
             vertical-align: top;
             padding-bottom: 5vw;
@@ -79,6 +86,11 @@ main {
         }
         #cos {
             background: rgb(cos(@r)*255, cos(@g)*255, cos(@b)*255);
+        }
+        #sin-mix-cos-invert {
+            @sin: rgb(sin(@r)*255, sin(@g)*255, sin(@b)*255);
+            @cos: rgb(cos(@r)*255, cos(@g)*255, cos(@b)*255);
+            background: #fff - mix(@sin, @cos, 50%);
         }
         #mix-red-25 {
             background: mix(#f00, @color, 25%); 

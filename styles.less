@@ -1,5 +1,9 @@
 @color: #00BFFF;
-html, body, ul, li {
+@r: 255;
+@g: 255;
+@b: 255;
+
+html, body, ul, li, p, h1, h2 {
     padding: 0;
     margin: 0;
 }
@@ -19,45 +23,84 @@ main {
         margin: 5vh auto;
         background: #fff;
         padding: 3vw;
-        p {
-            color: #777;
-            line-height: 36px;
-            font-size: 12px;
+        h1 {
+            color: #ccc;
+            font-weight: normal;
+            border-bottom: 3px solid #ccc;
+            line-height: 48px;
+            font-size: 24px;
+        }
+        h2 {
+            margin-top: 24px;
+            color: #ccc;
+            line-height: 24px;
+            font-size: 18px;
+        }
+        .block {
+            margin-top: 2vw;
+            width: 100%;
+            vertical-align: top;
+            padding-bottom: 5vw;
+        }
+        .group {
+            .block {
+                width: 33.33%;
+                float: left;
+            }
+            &:after {
+                display: block;
+                clear: both;
+                content: '';
+            }
         }
         .info {
             color: #777;
             display: block;
-            position: relative;
-            top: -24px;
-            margin-top: 60px;
+            background: #fff;
             font-size: 12px;
-        }
-        li {
-            .info {
-                top: -5.5vw;
+            line-height: 24px;
+            span {
                 color: #aaa;
-                text-align: center;
             }
         }
         #original {
-            width: 100%;
-            height: 5vw;
             background: @color;
-        }
-        #greyscale {
-            width: 100%;
             height: 5vw;
-            background: greyscale(@color);
         }
         #invert {
-            width: 100%;
-            height: 5vw;
             background: #fff - @color;
+        }
+        #greyscale {
+            background: greyscale(@color);
+        }
+        #sin {
+            background: rgb(sin(@r)*255, sin(@g)*255, sin(@b)*255);
+        }
+        #cos {
+            background: rgb(cos(@r)*255, cos(@g)*255, cos(@b)*255);
+        }
+        #mix-red-25 {
+            background: mix(#f00, @color, 25%); 
+        }
+        #mix-green-25 {
+            background: mix(#0f0, @color,  25%); 
+        }
+        #mix-blue-25 {
+            background: mix(#00f, @color, 25%);
+        }
+        #mix-red-50 {
+            background: mix(@color, #f00, 50%); 
+        }
+        #mix-green-50 {
+            background: mix(@color, #0f0, 50%); 
+        }
+        #mix-blue-50 {
+            background: mix(@color, #00f, 50%);
         }
         #fade {
             li {
                 width: 5vw;
-                height: 5vw;
+                padding-bottom: 5vw;
                 float: left;
                 &:nth-child(1) {
                     background: fade(@color, 100%);
@@ -99,7 +142,7 @@ main {
         #spin {
             li {
                 width: 5vw;
-                height: 5vw;
+                padding-bottom: 5vw;
                 float: left;
                 &:nth-child(1) {
                     background: spin(@color, 100);
@@ -141,7 +184,7 @@ main {
         #desaturate {
             li {
                 width: 5vw;
-                height: 5vw;
+                padding-bottom: 5vw;
                 float: left;
                 &:nth-child(1) {
                     background: desaturate(@color, 100%);

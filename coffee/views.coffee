@@ -15,7 +15,7 @@ class View
     $('#color').slideUp -> $('#index').slideDown()
 
   color: (hex) ->
-    $('html, body').animate({scrollTop: 0});
+    $('html, body').animate({scrollTop: 0})
     color = @colors.filter (color) -> color.hex is hex
     color = color[0]
     hex = "#"+hex

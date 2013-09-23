@@ -2,7 +2,7 @@
 
 A tool to generate releated colors, based on less.
 
-[http://zenozeng.github.io/colors](Demo)
+[Demo](http://zenozeng.github.io/colors)
 
 ## Features
 

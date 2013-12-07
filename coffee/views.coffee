@@ -40,7 +40,10 @@ class View
       id = $(this).attr('id')
       id = if id? then id.toUpperCase() else ''
       $(this).html "<p class=\"info\">#{id} <span>#{color.hex()}</span></p>"
+      $(this).hover ->
+        $elem = $(this).find('span')
+        $elem.css
+        window.selectText $elem[0]
     $('#index').slideUp -> $('#color').slideDown()
-    
 
 @View = View

@@ -3,6 +3,10 @@
 @g: 255;
 @b: 255;
 
+::selection {
+    background: #00BFFF;
+    color: #fff;
+}
 html, body, ul, li, p, h1, h2 {
     padding: 0;
     margin: 0;
@@ -29,6 +33,10 @@ main {
         padding: 3vw;
         .color {
             cursor: pointer;
+            span {
+                padding: 0;
+                line-height: 28px;
+            }
         }
         h1 {
             color: #ccc;
